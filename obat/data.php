@@ -90,9 +90,9 @@
                                 <div class="text-uppercase fs-6 fw-bold">Data tidak ditemukan</div>
                             </div>
                         </td>
-                    <?php } ?>
                         </tr>
                     </tbody>
+                <?php } ?>
         </table>
     </div>
     <?php
