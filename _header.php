@@ -22,6 +22,9 @@ if (!isset($_SESSION['user'])) {
   <!-- offline datatable -->
   <link rel="stylesheet" href="<?= base_url(); ?>/_assets/DataTables/css/dataTables.bootstrap5.min.css">
 
+  <!-- my style css -->
+  <link rel="stylesheet" href="<?= base_url(); ?>/style.css">
+
   <title></title>
 
 </head>

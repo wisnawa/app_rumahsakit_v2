@@ -31,7 +31,7 @@
 </div>
 <div class="container">
     <div class="table-responsive-sm">
-        <table class="table table-striped table-hover">
+        <table class="table table-hover">
             <thead class="table-primary">
                 <tr>
                     <th>No.</th>
