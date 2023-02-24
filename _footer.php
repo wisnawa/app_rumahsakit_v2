@@ -11,6 +11,7 @@
 <script src="<?= base_url(); ?>/_assets/DataTables/js/jquery.dataTables.min.js"></script>
 <script src="<?= base_url(); ?>/_assets/DataTables/js/dataTables.bootstrap5.min.js"></script>
 <script src="<?= base_url(); ?>/_assets/DataTables/js/my-script.js"></script>
+<script src="<?= base_url(); ?>/script.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,9 @@
 <?php
 require_once "_config/config.php";
+
+// load UUID files
+require "_assets/libs/vendor/autoload.php";
+
 if (!isset($_SESSION['user'])) {
   echo "<script>window.location='" . base_url('auth/login.php') . "'</script>";
 }; ?>
@@ -34,9 +38,11 @@ if (!isset($_SESSION['user'])) {
   <div class="container" style="margin-bottom: 120px;">
     <nav class=" navbar bg-body-tertiary fixed-top">
       <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <span data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="Menu navbar">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </span>
 
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
           <div class="offcanvas-header">

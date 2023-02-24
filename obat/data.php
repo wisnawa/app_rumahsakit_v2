@@ -85,7 +85,7 @@
                         <?php }
                 } else { ?>
                         <td colspan="4">
-                            <div class="alert alert-danger d-flex align-items-center col-5" role="alert">
+                            <div class="alert alert-danger d-flex align-items-center col-10" role="alert">
                                 <i class="fa-solid fa-circle-exclamation"></i>&nbsp;
                                 <div class="text-uppercase fs-6 fw-bold">Data tidak ditemukan</div>
                             </div>
