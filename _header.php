@@ -21,10 +21,7 @@ if (!isset($_SESSION['user'])) {
 
   <!-- cdn datatable -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" /> -->
-  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css" /> -->
-
-  <!-- offline datatable -->
-  <link rel="stylesheet" href="<?= base_url(); ?>/_assets/DataTables/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css" />
 
   <!-- my style css -->
   <link rel="stylesheet" href="<?= base_url(); ?>/style.css">

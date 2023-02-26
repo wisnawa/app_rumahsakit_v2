@@ -32,13 +32,13 @@
 <div class="container">
     <form action="" method="post" name="proses">
         <div class="table-responsive-sm">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="dataTable">
                 <thead class="table-primary">
                     <tr>
                         <th class="align-middle">No.</th>
                         <th class="align-middle">Nama Poliklinik</th>
                         <th class="align-middle">Area Gedung</th>
-                        <th colspan="2">
+                        <th>
                             <div style="float: left; margin-left: 50%">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" onclick="selectAll()" type="radio" name="radio_check" id="flexRadioDefault1">
@@ -74,14 +74,10 @@
                             </tr>
                         <?php }
                     } else { ?>
-                        <tr>
-                            <td colspan="4">
-                                <div class="alert alert-danger d-flex align-items-center" role="alert">
-                                    <i class="fa-solid fa-circle-exclamation"></i>&nbsp;
-                                    <div class="text-uppercase fs-6 fw-bold">Data tidak ditemukan</div>
-                                </div>
-                            </td>
-                        </tr>
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <i class="fa-solid fa-circle-exclamation"></i>&nbsp;
+                            <div class="text-uppercase fs-6 fw-bold">Data tidak ditemukan, silahkan <a href="generate.php" class="alert-link">tambahkan data!</a></div>
+                        </div>
                     <?php } ?>
                 </tbody>
             </table>

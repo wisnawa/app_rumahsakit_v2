@@ -32,7 +32,7 @@
 <div class="container">
     <form action="" method="post" name="proses">
         <div class="table-responsive-sm">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped" id="dataTable">
                 <thead class="table-primary">
                     <tr>
                         <th class="align-middle">No.</th>
@@ -55,30 +55,37 @@
                                     </label>
                                 </div>
                             </div>
-                        <th colspan="2" class="text-center align-middle"><i class="fa-solid fa-gears"></i></th>
                         </th>
+                        <th class="text-center align-middle"><i class="fa-solid fa-gears"></i></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $no = 1;
-                    $sql_poli = mysqli_query($con, "SELECT * FROM tb_dokter") or die(mysqli_error($con));
-                    while ($data = mysqli_fetch_array($sql_poli)) { ?>
-                        <tr>
-                            <td><?= $no++; ?></td>
-                            <td><?= $data['nama_dokter']; ?></td>
-                            <td><?= $data['spesialis']; ?></td>
-                            <td><?= $data['alamat']; ?></td>
-                            <td><?= $data['no_telp']; ?></td>
-                            <td>
-                                <div class="form-check">
-                                    <input style="float: left; margin-left: 30%" name="checked[]" class="form-check-input" type="checkbox" value="<?= $data['id_dokter']; ?>" id="cityCheck">
-                                </div>
-                            </td>
-                            <td style="text-align: center; width: 100px;">
-                                <a href="edit.php?id=<?= $data['id_obat']; ?>" class="btn btn-sm btn-outline-warning"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</a>
-                            </td>
-                        </tr>
+                    $sql_dokter = mysqli_query($con, "SELECT * FROM tb_dokter") or die(mysqli_error($con));
+                    if (mysqli_num_rows($sql_dokter) > 0) {
+                        while ($data = mysqli_fetch_array($sql_dokter)) { ?>
+                            <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= $data['nama_dokter']; ?></td>
+                                <td><?= $data['spesialis']; ?></td>
+                                <td><?= $data['alamat']; ?></td>
+                                <td><?= $data['no_telp']; ?></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input style="float: left; margin-left: 30%" name="checked[]" class="form-check-input" type="checkbox" value="<?= $data['id_dokter']; ?>" id="cityCheck">
+                                    </div>
+                                </td>
+                                <td style="text-align: center; width: 100px;">
+                                    <a href="edit.php?id=<?= $data['id_dokter']; ?>" class="btn btn-sm btn-outline-warning"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</a>
+                                </td>
+                            </tr>
+                        <?php }
+                    } else { ?>
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <i class="fa-solid fa-circle-exclamation"></i>&nbsp;
+                            <div class="text-uppercase fs-6 fw-bold">Data tidak ditemukan, silahkan <a href="add.php" class="alert-link">tambahkan data!</a></div>
+                        </div>
                     <?php } ?>
                 </tbody>
             </table>
@@ -88,5 +95,21 @@
         <button class="btn btn-sm btn-outline-danger" id="btnDelete"><i class=" fa-regular fa-trash-can"></i>&nbsp;Hapus Data</button>
     </div>
 </div>
+<script>
+    // $(document).ready(function() {
+    //     $("#dokter").DataTable();
+    // });
+    // function for button delete
+    var btnDelete = document.getElementById("btnDelete");
+
+    function prosesDel() {
+        var conf = confirm("Apakah hapus data?");
+        if (conf) {
+            document.proses.action = "del.php";
+            document.proses.submit();
+        }
+    }
+    btnDelete.addEventListener("click", prosesDel);
+</script>
 
 <?php include_once('../_footer.php'); ?>
