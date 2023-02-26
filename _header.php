@@ -20,11 +20,15 @@ if (!isset($_SESSION['user'])) {
   <link rel="stylesheet" href="<?= base_url(); ?>/_assets/fontawesome-6.2.1/css/all.min.css">
 
   <!-- cdn datatable -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css" />
 
+
+  <!-- coba offline datatable -->
+  <!-- <link rel="stylesheet" href="<?= base_url('_assets/libs/DataTables/datatables.min.css'); ?>"> -->
+
   <!-- my style css -->
-  <link rel="stylesheet" href="<?= base_url(); ?>/style.css">
+  <link rel="stylesheet" href="<?= base_url('style.css'); ?>">
 
   <title></title>
 

@@ -32,7 +32,7 @@
 <div class="container">
     <form action="" method="post" name="proses">
         <div class="table-responsive-sm">
-            <table class="table table-striped" id="dataTable">
+            <table class="table table-striped table-hover" id="dokterTable">
                 <thead class="table-primary">
                     <tr>
                         <th class="align-middle">No.</th>
