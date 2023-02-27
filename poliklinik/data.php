@@ -83,7 +83,7 @@
             </table>
         </div>
     </form>
-    <div class="d-grid d-md-flex gap-3 justify-content-md-end">
+    <div class="d-grid d-md-flex gap-3 justify-content-md-end mt-3">
         <button class="btn btn-sm btn-outline-warning" id="btnEdit"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</button>
         <button class="btn btn-sm btn-outline-danger" id="btnDelete"><i class=" fa-regular fa-trash-can"></i>&nbsp;Hapus Data</button>
     </div>
