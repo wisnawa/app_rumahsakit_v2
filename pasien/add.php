@@ -16,7 +16,7 @@ include_once('../_header.php');
 <div class="container">
     <div class="row">
         <div class="col-lg-12 text-center">
-            <h1>Penambahan Data Dokter</h1>
+            <h1>Penambahan Data Pasien</h1>
             <p>Selamat Datang <span style="font-weight: bold; text-transform: capitalize;"><?= $_SESSION['user']; ?></span> Pengguna Rekam Medis</p>
         </div>
     </div>
@@ -25,7 +25,7 @@ include_once('../_header.php');
     <div class="row">
         <div class="col">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="data.php" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Kembali ke data dokter"><i class="fa-solid fa-backward"></i>&nbsp;Kembali</a>
+                <a href="data.php" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Kembali ke data pasien"><i class="fa-solid fa-backward"></i>&nbsp;Kembali</a>
             </div>
         </div>
     </div>
@@ -35,17 +35,32 @@ include_once('../_header.php');
         <div class="col-lg-6">
             <form action="proses.php" method="post">
                 <div class="mb-3">
-                    <label for="nama_dokter" class="form-label fw-bold">Nama Dokter:</label>
-                    <input type="text" name="nama" class="form-control" id="nama_dokter" aria-describedby="nameHelp" placeholder="Isi nama dokter" required autofocus>
+                    <label for="identitas" class="form-label fw-bold">Nomor Identitas KTP:</label>
+                    <input type="text" name="identitas" pattern="[0-9]{16}" class="form-control" id="identitas" aria-describedby="nameHelp" placeholder="Isi nomor identitas" required autofocus>
+                    <div id="nameHelp" class="form-text text-danger">* Harus diisi nomor KTP 16 angka</div>
+                </div>
+                <div class="mb-3">
+                    <label for="nama_pasien" class="form-label fw-bold">Nama Pasien:</label>
+                    <input type="text" name="nama" class="form-control" id="nama_pasien" aria-describedby="nameHelp" placeholder="Isi nama pasien" required>
                     <div id="nameHelp" class="form-text text-danger">* Harus diisi</div>
                 </div>
                 <div class="mb-3">
-                    <label for="spes_dokter" class="form-label fw-bold">Spesialis Dokter:</label>
-                    <input type="text" name="spesialis" class="form-control" id="spes_dokter" aria-describedby="nameHelp" placeholder="Isi spesialisasi dokter" required>
-                    <div id="nameHelp" class="form-text text-danger">* Harus diisi</div>
+                    <label for="flexRadioDefault1" class="form-label fw-bold">Jenis Kelamin:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="jk" value="L" id="flexRadioDefault1" required>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Laki - laki
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="jk" value="P" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Perempuan
+                        </label>
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label for="alamat" class="form-label fw-bold">Alamat Dokter:</label>
+                    <label for="alamat" class="form-label fw-bold">Alamat Pasien:</label>
                     <textarea name="alamat" id="alamat" class="form-control" rows="3" placeholder="Alamat dokter" required></textarea>
                     <div id="nameHelp" class="form-text text-danger">* Harus diisi</div>
                 </div>
@@ -54,7 +69,8 @@ include_once('../_header.php');
                     <input type="number" name="telp" id="no_telp" class="form-control" aria-describedby="nameHelp" placeholder="Nomor telp / hp" required>
                     <div id="nameHelp" class="form-text text-danger">* Harus diisi dengan angka</div>
                 </div>
-                <div class="d-grid justify-content-end">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="reset" class="btn btn-sm btn-outline-warning"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;Reset</button>
                     <button type="submit" name="add" class="btn btn-sm btn-outline-success"><i class="fa-regular fa-paper-plane"></i>&nbsp;Kirim Data</button>
                 </div>
             </form>

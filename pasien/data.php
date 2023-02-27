@@ -32,10 +32,9 @@
 <div class="container">
     <form action="" method="post" name="proses">
         <div class="table-responsive-sm">
-            <table class="table table-striped table-hover" id="">
+            <table class="table table-striped table-hover" id="pasienTable">
                 <thead class="table-primary">
                     <tr>
-                        <th class="align-middle">No.</th>
                         <th class="align-middle">No Identitas</th>
                         <th class="align-middle">Nama Pasien</th>
                         <th class="align-middle">Jenis Kelamin</th>
@@ -46,29 +45,10 @@
                 </thead>
                 <tbody>
                     <?php
-                    $no = 1;
                     $sql_pasien = mysqli_query($con, "SELECT * FROM tb_pasien") or die(mysqli_error($con));
                     if (mysqli_num_rows($sql_pasien) > 0) {
                         while ($data = mysqli_fetch_array($sql_pasien)) { ?>
-                            <tr>
-                                <td><?= $no++; ?></td>
-                                <td><?= $data['nomor_identitas']; ?></td>
-                                <td><?= $data['nomor_identitas']; ?></td>
-                                <td><?= $data['nama_pasien']; ?></td>
-                                <?php if ($data['jenis_kelamin'] == "L") {
-                                    $jenis = "Laki-laki";
-                                } elseif ($data['jenis_kelamin'] == "P") {
-                                    $jenis = "Perempuan";
-                                } ?>
-                                <td><?= $jenis; ?></td>
-                                <td><?= $data['alamat']; ?></td>
-                                <td><?= $data['no_telp']; ?></td>
-                                <td>
-                                    <div class="form-check">
-                                        <input style="float: left; margin-left: 70%" name="checked[]" class="form-check-input" type="checkbox" value="<?= $data['id_poli']; ?>" id="cityCheck">
-                                    </div>
-                                </td>
-                            </tr>
+                            <!-- tabel data akan automatis diisi dari datatable server side -->
                         <?php }
                     } else { ?>
                         <div class="alert alert-danger d-flex align-items-center" role="alert">

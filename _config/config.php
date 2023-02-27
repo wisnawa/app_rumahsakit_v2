@@ -2,8 +2,11 @@
 // setting default timezone area ('Asia/Jakarta'), ('Asia/Jayapura')
 date_default_timezone_set('Asia/Makassar');
 session_start();
+
+include_once "conn.php";
+
 // connection to database mysql
-$con = mysqli_connect('localhost', 'root', '', 'rumahsakit');
+$con = mysqli_connect($con['host'], $con['user'], $con['pass'], $con['db']);
 if (mysqli_connect_error()) {
     echo mysqli_connect_error();
 }
