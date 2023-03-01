@@ -29,7 +29,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container mb-5">
     <form action="" method="post" name="proses">
         <div class="table-responsive-sm">
             <table class="table table-striped table-hover" id="pasienTable">
@@ -60,10 +60,10 @@
             </table>
         </div>
     </form>
-    <div class="d-grid d-md-flex gap-3 justify-content-md-end mt-3">
+    <!-- <div class="d-grid d-md-flex gap-3 justify-content-md-end mt-3">
         <button class="btn btn-sm btn-outline-warning" id="btnEdit"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</button>
         <button class="btn btn-sm btn-outline-danger" id="btnDelete"><i class=" fa-regular fa-trash-can"></i>&nbsp;Hapus Data</button>
-    </div>
+    </div> -->
 </div>
 <!-- offline script js bootstrap 5 -->
 <script src="<?= base_url(); ?>/_assets/js/bootstrap.bundle.min.js"></script>
@@ -74,7 +74,7 @@
 <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
 
 <!-- coba offline datatable -->
-<!-- <script src="<?= base_url('_assets/libs/DataTables/datatables.min.js'); ?>"></script> -->
+<script src="<?= base_url('_assets/libs/DataTables/datatables.min.js'); ?>"></script>
 
 <!-- offline myscript -->
 <!-- <script src="<?= base_url(); ?>/_assets/MyDataTables/js/my-script.js"></script> -->
@@ -88,13 +88,42 @@
             processing: true,
             serverSide: true,
             ajax: "pasien_data.php",
+            // scrollY: '250px',
+            dom: 'Bfrtip',
+            buttons: [{
+                    extend: 'pdf',
+                    oriented: 'potrait',
+                    pageSize: 'legal',
+                    title: 'Data Pasien',
+                    download: 'open',
+                    className: 'btn btn-danger',
+                },
+                {
+                    extend: 'print',
+                    title: 'Data Pasien Rumah Sakit',
+                    className: 'btn btn-warning',
+                    // className: 'btn btn-primary',
+                },
+                {
+                    extend: 'excel',
+                    text: '<span class="fw-bold">Export To Excel</span>',
+                    className: 'btn btn-success',
+                    title: 'Data Pasien'
+                },
+                {
+                    extend: 'copy',
+                    title: 'Data Pasien RS',
+                    className: 'btn btn-info',
+                },
+                'csv',
+            ],
             columnDefs: [{
                 searchable: false,
                 orderable: false,
                 targets: [5],
                 render: function(data, type, row) {
                     const btn =
-                        '<div style="text-align: center"><a href="edit.php?id=' + data + '" class="btn btn-sm btn-outline-warning" style="margin-right: 9px;"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</a><a href="dell.php?id=' + data + '" class="btn btn-sm btn-outline-danger" onclick="return confirm(\'Yakin dihapus?\')"><i class="fa-regular fa-trash-can"></i>&nbsp;Delete</a></div>';
+                        '<div style="text-align: center"><a href="edit.php?id=' + data + '" class="btn btn-sm btn-outline-warning" style="margin-right: 9px;"><i class="fa-regular fa-pen-to-square"></i>&nbsp;</a><a href="del.php?id=' + data + '" class="btn btn-sm btn-outline-danger" onclick="return confirm(\'Yakin dihapus?\')"><i class="fa-regular fa-trash-can"></i>&nbsp;</a></div>';
                     return btn;
                 },
             }, ],
