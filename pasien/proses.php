@@ -51,7 +51,7 @@ if (isset($_POST['add'])) {
     $file_name = "file-" . round(microtime(true)) . "." . end($ekstensi);
     $sumber = $_FILES['file']['tmp_name'];
     $target_dir = "../_file/";
-    $target_file = $target_dir . $target_file;
+    $target_file = $target_dir . $file_name;
     $upload = move_uploaded_file($sumber, $target_file);
     if ($upload) {
         echo "upload sukses";
