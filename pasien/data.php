@@ -65,6 +65,22 @@
         <button class="btn btn-sm btn-outline-danger" id="btnDelete"><i class=" fa-regular fa-trash-can"></i>&nbsp;Hapus Data</button>
     </div>
 </div>
+<!-- offline script js bootstrap 5 -->
+<script src="<?= base_url(); ?>/_assets/js/bootstrap.bundle.min.js"></script>
+
+<!-- online cdn datatable -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- coba offline datatable -->
+<!-- <script src="<?= base_url('_assets/libs/DataTables/datatables.min.js'); ?>"></script> -->
+
+<!-- offline myscript -->
+<!-- <script src="<?= base_url(); ?>/_assets/MyDataTables/js/my-script.js"></script> -->
+
+<!-- internal script datatable server side -->
+<script src="<?= base_url(); ?>/script.js"></script>
 <script>
     // datatable server side
     $(document).ready(function() {
@@ -78,11 +94,13 @@
                 targets: [5],
                 render: function(data, type, row) {
                     const btn =
-                        '<div style="text-align: center"><a href="edit.php?id="+data+"" class="btn btn-sm btn-outline-warning" style="margin-right: 9px;"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</a><a href="dell.php?id="+data+"" class="btn btn-sm btn-outline-danger" onclick="return confirm(\'Yakin dihapus?\')"><i class="fa-regular fa-trash-can"></i>&nbsp;Delete</a></div>';
+                        '<div style="text-align: center"><a href="edit.php?id=' + data + '" class="btn btn-sm btn-outline-warning" style="margin-right: 9px;"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</a><a href="dell.php?id=' + data + '" class="btn btn-sm btn-outline-danger" onclick="return confirm(\'Yakin dihapus?\')"><i class="fa-regular fa-trash-can"></i>&nbsp;Delete</a></div>';
                     return btn;
                 },
             }, ],
         });
     });
 </script>
-<?php include_once('../_footer.php'); ?>
+</body>
+
+</html>
