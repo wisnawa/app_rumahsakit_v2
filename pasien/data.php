@@ -24,6 +24,7 @@
             <div class="d-grid gap-3 d-md-flex justify-content-md-end mb-2">
                 <button id="btnRefresh" class="btn btn-sm btn-outline-warning"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;Refresh</button>
                 <a href="add.php" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-circle-plus"></i>&nbsp;Tambah Data Pasien</a>
+                <a href="import.php" class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-file-import"></i>&nbsp;Import Data Pasien</a>
             </div>
             <!-- button process end -->
         </div>
