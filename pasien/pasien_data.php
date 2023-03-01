@@ -40,7 +40,6 @@ $columns = array(
             } elseif ($data == "P") {
                 return "Perempuan";
             };
-            // return $data;
         }
     ),
     array('db' => 'alamat',     'dt' => 3),
