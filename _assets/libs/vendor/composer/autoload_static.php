@@ -58,6 +58,16 @@ class ComposerStaticInitec768328b4b8eb6b4c5e82de91426f39
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'PHPExcel' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -73,6 +83,7 @@ class ComposerStaticInitec768328b4b8eb6b4c5e82de91426f39
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitec768328b4b8eb6b4c5e82de91426f39::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitec768328b4b8eb6b4c5e82de91426f39::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitec768328b4b8eb6b4c5e82de91426f39::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitec768328b4b8eb6b4c5e82de91426f39::$classMap;
 
         }, null, ClassLoader::class);

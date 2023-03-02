@@ -25,7 +25,8 @@ include_once('../_header.php');
     <div class="row">
         <div class="col">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="data.php" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Kembali ke data pasien"><i class="fa-solid fa-backward"></i>&nbsp;Kembali</a>
+                <a href="../_file/sample/format_sample.xlsx" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-download"></i>&nbsp;Download Format Excel</a>
+                <a href="data.php" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Kembali ke data pasien"><i class="fa-solid fa-backward"></i>&nbsp;Kembali</a>
             </div>
         </div>
     </div>
