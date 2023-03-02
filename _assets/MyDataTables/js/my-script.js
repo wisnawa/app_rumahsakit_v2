@@ -22,3 +22,15 @@ $(document).ready(function () {
     ],
   });
 });
+
+$(document).ready(function () {
+  $("#rekamMedisTable").DataTable({
+    columnDefs: [
+      {
+        searchable: false,
+        orderable: false,
+        targets: [5],
+      },
+    ],
+  });
+});

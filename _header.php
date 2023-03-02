@@ -68,7 +68,7 @@ if (!isset($_SESSION['user'])) {
                 <a class="nav-link" href="<?= base_url('obat'); ?>">Data Obat</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(''); ?>">Rekam Medis</a>
+                <a class="nav-link" href="<?= base_url('rekammedis'); ?>">Rekam Medis</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('auth/logout.php'); ?>">Logout</a>
