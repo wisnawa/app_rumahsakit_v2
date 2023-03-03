@@ -56,7 +56,7 @@
                     while ($data = mysqli_fetch_array($sql_rekammedis)) { ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td><?= $data['tgl_periksa']; ?></td>
+                            <td><?= tgl_indo($data['tgl_periksa']); ?></td>
                             <td><?= $data['nama_pasien']; ?></td>
                             <td><?= $data['keluhan']; ?></td>
                             <td><?= $data['nama_dokter']; ?></td>
@@ -70,7 +70,9 @@
                                     echo $noUrut . ".&nbsp;" . $data_obat['nama_obat'] . "<br>";
                                 } ?>
                             </td>
-                            <td></td>
+                            <td style="text-align: center; width: 100px;">
+                                <a href="del.php?id=<?= $data['id_rm']; ?>" class="btn btn-sm btn-outline-danger deleteConf" data-confirm="Yakin akan hapus data!"><i class="fa-regular fa-trash-can"></i>&nbsp;Delete</a>
+                            </td>
                         </tr>
                     <?php }
                 } else { ?>
@@ -83,5 +85,21 @@
         </table>
     </div>
 </div>
+<script>
+    // confirm delete script js dengan a element
+    var deleteConfNode = document.querySelectorAll(".deleteConf");
+
+    for (var i = 0; i < deleteConfNode.length; i++) {
+        deleteConfNode[i].addEventListener("click", function(event) {
+            event.preventDefault();
+
+            var choice = confirm(this.getAttribute("data-confirm"));
+
+            if (choice) {
+                window.location.href = this.getAttribute("href");
+            }
+        });
+    }
+</script>
 
 <?php include_once('../_footer.php'); ?>

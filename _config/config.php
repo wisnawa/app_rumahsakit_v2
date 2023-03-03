@@ -20,3 +20,30 @@ function base_url($url = null)
         return $base_url;
     }
 }
+
+// function untuk format tanggal indonesia
+function format_month($month)
+{
+    $indo_month = array(
+        '01' => 'Januari',
+        '02' => 'Februari',
+        '03' => 'Maret',
+        '04' => 'April',
+        '05' => 'Mei',
+        '06' => 'Juni',
+        '07' => 'Juli',
+        '08' => 'Agustus',
+        '09' => 'September',
+        '10' => 'Oktober',
+        '11' => 'November',
+        '12' => 'Desember'
+    );
+    return $indo_month[$month];
+}
+function tgl_indo($tgl)
+{
+    $tanggal = substr($tgl, 8, 2); // argument pertama $tgl, diambil dari index ke 8 lalu ambil 2 angka
+    $bulan = substr($tgl, 5, 2); // argument pertama $tgl, diambil dari index ke 5 lalu ambil 2 angka 
+    $tahun = substr($tgl, 0, 4); // argument pertama $tgl, diambil dari index ke 0 lalu ambil 4 angka
+    return $tanggal . "&nbsp;" . format_month($bulan) . "&nbsp;" . $tahun;
+}
