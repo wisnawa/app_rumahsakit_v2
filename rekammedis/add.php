@@ -25,7 +25,7 @@ include_once('../_header.php');
     <div class="row">
         <div class="col">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="data.php" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Kembali ke data dokter"><i class="fa-solid fa-backward"></i>&nbsp;Kembali</a>
+                <a href="data.php" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Kembali ke data rekam medis"><i class="fa-solid fa-backward"></i>&nbsp;Kembali</a>
             </div>
         </div>
     </div>
@@ -35,20 +35,55 @@ include_once('../_header.php');
         <div class="col-lg-6">
             <form action="proses.php" method="post">
                 <div class="form-floating mb-3">
-                    <select class="form-select" name="pasien" id="floatingSelect" aria-label="Floating label select example" autofocus>
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" name="pasien" id="floatingSelect" aria-label="Floating label select example" autofocus required>
+                        <option value="" selected>-- Pilih --</option>
+                        <?php $sql_pasien = mysqli_query($con, "SELECT * FROM tb_pasien") or die(mysqli_error($con));
+                        while ($data_pasien = mysqli_fetch_array($sql_pasien)) {
+                            echo '<option value="' . $data_pasien['id_pasien'] . '">' . $data_pasien['nama_pasien'] . '</option>';
+                        } ?>
                     </select>
                     <label for="floatingSelect">Nama Pasien:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" name="keluhan" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control" name="keluhan" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required></textarea>
                     <label for="floatingTextarea2">Keluhan Penyakit:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="date" name="tgl" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <select class="form-select" name="dokter" id="floatingSelect" aria-label="Floating label select example" autofocus required>
+                        <option value="" selected>-- Pilih --</option>
+                        <?php $sql_dokter = mysqli_query($con, "SELECT * FROM tb_dokter") or die(mysqli_error($con));
+                        while ($data_dokter = mysqli_fetch_array($sql_dokter)) {
+                            echo '<option value="' . $data_dokter['id_dokter'] . '">' . $data_dokter['nama_dokter'] . '&nbsp;' . $data_dokter['spesialis'] . '</option>';
+                        } ?>
+                    </select>
+                    <label for="floatingSelect">Nama Dokter:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" name="diagnosa" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required></textarea>
+                    <label for="floatingTextarea2">Diagnosa Penyakit:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" name="poli" id="floatingSelect" aria-label="Floating label select example" autofocus required>
+                        <option value="" selected>-- Pilih --</option>
+                        <?php $sql_poli = mysqli_query($con, "SELECT * FROM tb_poliklinik ORDER BY nama_poli ASC") or die(mysqli_error($con));
+                        while ($data_poli = mysqli_fetch_array($sql_poli)) {
+                            echo '<option value="' . $data_poli['id_poli'] . '">' . $data_poli['nama_poli'] . '&nbsp;' . $data_poli['spesialis'] . '</option>';
+                        } ?>
+                    </select>
+                    <label for="floatingSelect">Poliklinik:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" name="poli" id="floatingSelect" aria-label="Floating label select example" autofocus required>
+                        <option value="" selected>-- Pilih --</option>
+                        <?php $sql_poli = mysqli_query($con, "SELECT * FROM tb_poliklinik ORDER BY nama_poli ASC") or die(mysqli_error($con));
+                        while ($data_poli = mysqli_fetch_array($sql_poli)) {
+                            echo '<option value="' . $data_poli['id_poli'] . '">' . $data_poli['nama_poli'] . '&nbsp;' . $data_poli['spesialis'] . '</option>';
+                        } ?>
+                    </select>
+                    <label for="floatingSelect">Poliklinik:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="date" name="tgl" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                     <label for="floatingInput">Tanggal Periksa:</label>
                 </div>
                 <div class="row justify-content-end">

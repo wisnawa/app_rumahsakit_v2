@@ -43,6 +43,18 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                $sql_rm_obat = mysqli_query($con, "SELECT * FROM tb_rm_obat") or die(mysqli_error($con));
+                if (mysqli_num_rows($sql_rm_obat) > 0) {
+                    while ($data = mysqli_fetch_array($sql_rm_obat)) { ?>
+                        <!-- tabel data akan automatis diisi dari datatable server side -->
+                    <?php }
+                } else { ?>
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-circle-exclamation"></i>&nbsp;
+                        <div class="text-uppercase fs-6 fw-bold">Data tidak ditemukan, silahkan <a href="add.php" class="alert-link">tambahkan data!</a></div>
+                    </div>
+                <?php } ?>
             </tbody>
         </table>
     </div>
