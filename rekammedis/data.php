@@ -39,15 +39,39 @@
                     <th class="align-middle">Nama Pasien</th>
                     <th class="align-middle">Keluhan Penyakit</th>
                     <th class="align-middle">Nama Dokter</th>
+                    <th class="align-middle">Diagnosa Penyakit</th>
+                    <th class="align-middle">Poliklinik</th>
+                    <th class="align-middle">Obat</th>
                     <th class="text-center align-middle"><i class="fa-solid fa-gears"></i></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $sql_rm_obat = mysqli_query($con, "SELECT * FROM tb_rm_obat") or die(mysqli_error($con));
-                if (mysqli_num_rows($sql_rm_obat) > 0) {
-                    while ($data = mysqli_fetch_array($sql_rm_obat)) { ?>
-                        <!-- tabel data akan automatis diisi dari datatable server side -->
+                $no = 1;
+                $sql_rekammedis = mysqli_query($con, "SELECT * FROM tb_rekammedis 
+                INNER JOIN tb_pasien ON tb_rekammedis.id_pasien = tb_pasien.id_pasien 
+                INNER JOIN tb_dokter ON tb_rekammedis.id_dokter = tb_dokter.id_dokter 
+                INNER JOIN tb_poliklinik ON tb_rekammedis.id_poli = tb_poliklinik.id_poli") or die(mysqli_error($con));
+                if (mysqli_num_rows($sql_rekammedis) > 0) {
+                    while ($data = mysqli_fetch_array($sql_rekammedis)) { ?>
+                        <tr>
+                            <td><?= $no++; ?></td>
+                            <td><?= $data['tgl_periksa']; ?></td>
+                            <td><?= $data['nama_pasien']; ?></td>
+                            <td><?= $data['keluhan']; ?></td>
+                            <td><?= $data['nama_dokter']; ?></td>
+                            <td><?= $data['diagnosa']; ?></td>
+                            <td><?= $data['nama_poli']; ?>&nbsp;<?= $data['gedung']; ?></td>
+                            <td>
+                                <?php $sql_obat = mysqli_query($con, "SELECT * FROM tb_rm_obat JOIN tb_obat ON tb_rm_obat.id_obat = tb_obat.id_obat WHERE id_rm = '$data[id_rm]' ") or die(mysqli_error($con));
+                                $noUrut = 0;
+                                while ($data_obat = mysqli_fetch_array($sql_obat)) {
+                                    $noUrut++;
+                                    echo $noUrut . ".&nbsp;" . $data_obat['nama_obat'] . "<br>";
+                                } ?>
+                            </td>
+                            <td></td>
+                        </tr>
                     <?php }
                 } else { ?>
                     <div class="alert alert-danger d-flex align-items-center" role="alert">
