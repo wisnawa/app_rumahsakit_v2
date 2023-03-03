@@ -67,23 +67,24 @@ include_once('../_header.php');
                         <option value="" selected>-- Pilih --</option>
                         <?php $sql_poli = mysqli_query($con, "SELECT * FROM tb_poliklinik ORDER BY nama_poli ASC") or die(mysqli_error($con));
                         while ($data_poli = mysqli_fetch_array($sql_poli)) {
-                            echo '<option value="' . $data_poli['id_poli'] . '">' . $data_poli['nama_poli'] . '&nbsp;' . $data_poli['spesialis'] . '</option>';
+                            echo '<option value="' . $data_poli['id_poli'] . '">' . $data_poli['nama_poli'] . '&nbsp;' . $data_poli['gedung'] . '</option>';
                         } ?>
                     </select>
                     <label for="floatingSelect">Poliklinik:</label>
                 </div>
-                <div class="form-floating mb-3">
-                    <select class="form-select" name="poli" id="floatingSelect" aria-label="Floating label select example" autofocus required>
-                        <option value="" selected>-- Pilih --</option>
-                        <?php $sql_poli = mysqli_query($con, "SELECT * FROM tb_poliklinik ORDER BY nama_poli ASC") or die(mysqli_error($con));
-                        while ($data_poli = mysqli_fetch_array($sql_poli)) {
-                            echo '<option value="' . $data_poli['id_poli'] . '">' . $data_poli['nama_poli'] . '&nbsp;' . $data_poli['spesialis'] . '</option>';
-                        } ?>
+                <div class="mb-3">
+                    <select class="form-select" style="height: 50%;" name="obat[]" multiple aria-label="multiple select example" required>
+                        <optgroup label="Nama Obat:">
+                            <option value="" selected>-- Pilih Multiple --</option>
+                            <?php $sql_obat = mysqli_query($con, "SELECT * FROM tb_obat") or die(mysqli_error($con));
+                            while ($data_obat = mysqli_fetch_array($sql_obat)) {
+                                echo '<option value="' . $data_obat['id_obat'] . '">' . $data_obat['nama_obat'] . '</option>';
+                            } ?>
+                        </optgroup>
                     </select>
-                    <label for="floatingSelect">Poliklinik:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="date" name="tgl" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                    <input type="date" name="tgl" class="form-control" id="floatingInput" placeholder="name@example.com" value="<?= date('Y-m-d'); ?>" required>
                     <label for="floatingInput">Tanggal Periksa:</label>
                 </div>
                 <div class="row justify-content-end">
