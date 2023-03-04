@@ -75,7 +75,6 @@ include_once('../_header.php');
                 <div class="mb-3">
                     <select class="form-select" style="height: 50%;" name="obat[]" multiple aria-label="multiple select example" required>
                         <optgroup label="Nama Obat:">
-                            <option value="" selected>-- Pilih Multiple --</option>
                             <?php $sql_obat = mysqli_query($con, "SELECT * FROM tb_obat") or die(mysqli_error($con));
                             while ($data_obat = mysqli_fetch_array($sql_obat)) {
                                 echo '<option value="' . $data_obat['id_obat'] . '">' . $data_obat['nama_obat'] . '</option>';
@@ -113,7 +112,9 @@ include_once('../_header.php');
                 CKEDITOR.replace('keluhan', {
                     uiColor: '#ade8f4',
                 });
-                CKEDITOR.replace('diagnosa');
+                CKEDITOR.replace('diagnosa', {
+                    uiColor: '#ade8f4',
+                });
             </script>
 
         </div>
