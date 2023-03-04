@@ -27,6 +27,12 @@ if (!isset($_SESSION['user'])) {
   <!-- coba offline datatable -->
   <!-- <link rel="stylesheet" href="<?= base_url('_assets/libs/DataTables/datatables.min.css'); ?>"> -->
 
+  <!-- cdn ckeditor -->
+  <!-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script> -->
+
+  <!-- offline ckeditor -->
+  <script src="<?= base_url(); ?>/_assets/libs/vendor/ckeditor/ckeditor/ckeditor.js"></script>
+
   <!-- my style css -->
   <link rel="stylesheet" href="<?= base_url('style.css'); ?>">
 

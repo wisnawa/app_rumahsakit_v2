@@ -44,9 +44,9 @@ include_once('../_header.php');
                     </select>
                     <label for="floatingSelect">Nama Pasien:</label>
                 </div>
+                <label for="keluhan">Keluhan Penyakit:</label>
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" name="keluhan" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required></textarea>
-                    <label for="floatingTextarea2">Keluhan Penyakit:</label>
+                    <textarea class="form-control" name="keluhan" placeholder="Leave a comment here" id="keluhan" style="height: 100px" required></textarea>
                 </div>
                 <div class="form-floating mb-3">
                     <select class="form-select" name="dokter" id="floatingSelect" aria-label="Floating label select example" autofocus required>
@@ -58,9 +58,9 @@ include_once('../_header.php');
                     </select>
                     <label for="floatingSelect">Nama Dokter:</label>
                 </div>
+                <label for="diagnosa">Diagnosa Penyakit:</label>
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" name="diagnosa" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required></textarea>
-                    <label for="floatingTextarea2">Diagnosa Penyakit:</label>
+                    <textarea class="form-control" name="diagnosa" placeholder="Leave a comment here" id="diagnosa" style="height: 100px" required></textarea>
                 </div>
                 <div class="form-floating mb-3">
                     <select class="form-select" name="poli" id="floatingSelect" aria-label="Floating label select example" autofocus required>
@@ -94,6 +94,28 @@ include_once('../_header.php');
                     </div>
                 </div>
             </form>
+            <!-- script for online ckeditor -->
+            <!-- <script>
+                ClassicEditor
+                    .create(document.querySelector('#keluhan'))
+                    .catch(error => {
+                        console.error(error);
+                    });
+                ClassicEditor
+                    .create(document.querySelector('#diagnosa'))
+                    .catch(error => {
+                        console.error(error);
+                    });
+            </script> -->
+
+            <!-- script for offline ckeditor  -->
+            <script>
+                CKEDITOR.replace('keluhan', {
+                    uiColor: '#ade8f4',
+                });
+                CKEDITOR.replace('diagnosa');
+            </script>
+
         </div>
     </div>
 </div>
