@@ -81,6 +81,11 @@ include_once('../_header.php');
                     <label for="floatingSelect">Poliklinik:</label>
                 </div>
                 <div class="mb-3">
+                    <!-- ini tidak dipakai masih ujicoba start -->
+                    <!-- <?php $id = @$_GET['id'];
+                            $sql_rm_obat = mysqli_query($con, "SELECT * FROM `tb_rm_obat` JOIN tb_obat ON tb_rm_obat.id_obat = tb_obat.id_obat WHERE `id_rm` = '$id'") or die(mysqli_error($con));
+                            $data_obat1 = mysqli_fetch_array($sql_rm_obat); ?> -->
+                    <!-- ini tidak dipakai masih ujicoba end -->
                     <select class="form-select" style="height: 50%;" name="obat[]" multiple aria-label="multiple select example" required>
                         <optgroup label="Nama Obat:">
                             <?php $sql_obat = mysqli_query($con, "SELECT * FROM tb_obat") or die(mysqli_error($con));
