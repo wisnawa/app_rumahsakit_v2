@@ -71,8 +71,10 @@
                                 } ?>
                             </td>
                             <td style="text-align: center; width: 100px;">
-                                <a href="edit.php?id=<?= $data['id_rm']; ?>" class="btn btn-sm btn-outline-warning"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</a>
-                                <a href="del.php?id=<?= $data['id_rm']; ?>" class="btn btn-sm btn-outline-danger deleteConf" data-confirm="Yakin akan hapus data!"><i class="fa-regular fa-trash-can"></i>&nbsp;Delete</a>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <a href="edit.php?id=<?= $data['id_rm']; ?>" class="btn btn-sm btn-outline-warning"><i class="fa-regular fa-pen-to-square"></i>&nbsp;Edit</a>
+                                    <a href="del.php?id=<?= $data['id_rm']; ?>" class="btn btn-sm btn-outline-danger deleteConf" data-confirm="Yakin akan hapus data!"><i class="fa-regular fa-trash-can"></i>&nbsp;Delete</a>
+                                </div>
                             </td>
                         </tr>
                     <?php }

@@ -31,4 +31,22 @@ if (isset($_POST['add'])) {
     }
 
     echo "<script>window.location='data.php';</script>";
+} elseif (isset($_POST['edit'])) {
+    $id = $_POST['id'];
+    $pasien = trim(mysqli_real_escape_string($con, $_POST['pasien']));
+    $keluhan = trim(mysqli_real_escape_string($con, $_POST['keluhan']));
+    $dokter = trim(mysqli_real_escape_string($con, $_POST['dokter']));
+    $diagnosa = trim(mysqli_real_escape_string($con, $_POST['diagnosa']));
+    $poli = trim(mysqli_real_escape_string($con, $_POST['poli']));
+    $tgl = trim(mysqli_real_escape_string($con, $_POST['tgl']));
+    mysqli_query($con, "UPDATE tb_rekammedis SET `id_pasien` = '$pasien', `keluhan` = '$keluhan', `id_dokter` = '$dokter', `diagnosa` = '$diagnosa', `id_poli` = '$poli', `tgl_periksa` = '$tgl' WHERE `id_rm` = '$id'") or die(mysqli_error($con));
+
+
+    // $obat_edit = $_POST['obat_edit'];
+    // foreach ($obat_edit as $ob) {
+    //     // $id = $_POST['id'];
+    //     mysqli_query($con, "UPDATE tb_rm_obat SET `id_rm` = '$id', `id_obat` = '$ob' WHERE `id_rm` = '$id'") or die(mysqli_error($con));
+    // }
+
+    echo "<script>window.location='data.php';</script>";
 }

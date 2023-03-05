@@ -34,5 +34,5 @@ if (isset($_POST['add'])) {
         $gedung = $_POST['gedung'][$i];
         mysqli_query($con, "UPDATE `tb_poliklinik` SET `nama_poli` = '$nama', `gedung` = '$gedung' WHERE `id_poli` = '$id'") or die(mysqli_error($con));
     }
-    echo "<script>alert('Data Berhasil Di Tambahkan!'); window.location='data.php';</script>";
+    echo "<script>alert('Data Berhasil Di Ubah!'); window.location='data.php';</script>";
 }

@@ -44,7 +44,7 @@ include_once('../_header.php');
                 <div class="form-floating mb-3">
                     <input type="hidden" name="id" value="<?= $data['id_rm']; ?>">
                     <select class="form-select" name="pasien" id="floatingSelect" aria-label="Floating label select example" autofocus required>
-                        <option value="<?= $data['nama_pasien']; ?>" selected><?= $data['nama_pasien']; ?></option>
+                        <option value="<?= $data['id_pasien']; ?>" selected><?= $data['nama_pasien']; ?></option>
                         <?php $sql_pasien = mysqli_query($con, "SELECT * FROM tb_pasien") or die(mysqli_error($con));
                         while ($data_pasien = mysqli_fetch_array($sql_pasien)) {
                             echo '<option value="' . $data_pasien['id_pasien'] . '">' . $data_pasien['nama_pasien'] . '</option>';
@@ -58,7 +58,7 @@ include_once('../_header.php');
                 </div>
                 <div class="form-floating mb-3">
                     <select class="form-select" name="dokter" id="floatingSelect" aria-label="Floating label select example" required>
-                        <option value="<?= $data['nama_dokter']; ?>&nbsp;<?= $data['spesialis']; ?>" selected><?= $data['nama_dokter']; ?>&nbsp;<?= $data['spesialis']; ?></option>
+                        <option value="<?= $data['id_dokter']; ?>" selected><?= $data['nama_dokter']; ?>&nbsp;<?= $data['spesialis']; ?></option>
                         <?php $sql_dokter = mysqli_query($con, "SELECT * FROM tb_dokter") or die(mysqli_error($con));
                         while ($data_dokter = mysqli_fetch_array($sql_dokter)) {
                             echo '<option value="' . $data_dokter['id_dokter'] . '">' . $data_dokter['nama_dokter'] . '&nbsp;' . $data_dokter['spesialis'] . '</option>';
@@ -72,7 +72,7 @@ include_once('../_header.php');
                 </div>
                 <div class="form-floating mb-3">
                     <select class="form-select" name="poli" id="floatingSelect" aria-label="Floating label select example" required>
-                        <option value="<?= $data['nama_poli']; ?>" selected><?= $data['nama_poli']; ?></option>
+                        <option value="<?= $data['id_poli']; ?>" selected><?= $data['nama_poli']; ?></option>
                         <?php $sql_poli = mysqli_query($con, "SELECT * FROM tb_poliklinik ORDER BY nama_poli ASC") or die(mysqli_error($con));
                         while ($data_poli = mysqli_fetch_array($sql_poli)) {
                             echo '<option value="' . $data_poli['id_poli'] . '">' . $data_poli['nama_poli'] . '&nbsp;' . $data_poli['gedung'] . '</option>';
@@ -80,13 +80,10 @@ include_once('../_header.php');
                     </select>
                     <label for="floatingSelect">Poliklinik:</label>
                 </div>
-                <div class="mb-3">
-                    <!-- ini tidak dipakai masih ujicoba start -->
-                    <!-- <?php $id = @$_GET['id'];
-                            $sql_rm_obat = mysqli_query($con, "SELECT * FROM `tb_rm_obat` JOIN tb_obat ON tb_rm_obat.id_obat = tb_obat.id_obat WHERE `id_rm` = '$id'") or die(mysqli_error($con));
-                            $data_obat1 = mysqli_fetch_array($sql_rm_obat); ?> -->
-                    <!-- ini tidak dipakai masih ujicoba end -->
-                    <select class="form-select" style="height: 50%;" name="obat[]" multiple aria-label="multiple select example" required>
+
+                <!-- belom ada sulusi untuk bagian edit obat -->
+                <!-- <div class="mb-3">
+                    <select class="form-select" style="height: 50%;" name="obat_edit[]" multiple aria-label="multiple select example" required>
                         <optgroup label="Nama Obat:">
                             <?php $sql_obat = mysqli_query($con, "SELECT * FROM tb_obat") or die(mysqli_error($con));
                             while ($data_obat = mysqli_fetch_array($sql_obat)) {
@@ -94,14 +91,15 @@ include_once('../_header.php');
                             } ?>
                         </optgroup>
                     </select>
-                </div>
+                </div> -->
+
                 <div class="form-floating mb-3">
                     <input type="date" name="tgl" class="form-control" id="floatingInput" placeholder="name@example.com" value="<?= $data['tgl_periksa']; ?>">
                     <label for="floatingInput">Tanggal Periksa:</label>
                 </div>
                 <div class="row justify-content-end">
                     <div class="btn-group d-md-flex col-sm-6" role="group" aria-label="Basic outlined example">
-                        <button type="submit" name="add" class="btn btn-sm btn-outline-success"><i class="fa-regular fa-paper-plane"></i>&nbsp;Kirim Data</button>
+                        <button type="submit" name="edit" class="btn btn-sm btn-outline-success"><i class="fa-regular fa-paper-plane"></i>&nbsp;Kirim Data</button>
                         <a href="add.php" class="btn btn-sm btn-outline-warning"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;Reset Data</a>
                     </div>
                 </div>
